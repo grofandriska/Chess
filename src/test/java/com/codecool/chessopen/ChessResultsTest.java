@@ -23,7 +23,7 @@ public class ChessResultsTest {
     }
 
     @Test
-    void getCompetitorsNamesFromFileTest(){
+    void getCompetitorsNamesFromFileTest() {
         List<String> expected = Arrays.asList(
                 "Lilla Carver",
                 "Andrew Count",
@@ -36,15 +36,15 @@ public class ChessResultsTest {
                 "Martin Tailor",
                 "Leslie Little");
         List<String> results = chessResults.getCompetitorsNamesFromFile("src/main/resources/results.txt");
-        assertEquals(expected,results);
+        assertEquals(expected, results);
     }
 
     @Test
-    void correctErrorMessageForFileNotFound(){
+    void correctErrorMessageForFileNotFound() {
         ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outputStreamCaptor));
         chessResults.getCompetitorsNamesFromFile("src/main/resources/notExisting.txt");
-        assertEquals("File not found!",outputStreamCaptor.toString()
+        assertEquals("File not found!", outputStreamCaptor.toString()
                 .trim());
     }
 }
